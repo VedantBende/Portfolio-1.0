@@ -1,92 +1,104 @@
-# Vedant Bende — Portfolio 2026
+# Vedant Bende | Digital Portfolio v1.0
 
-A high-performance, immersive portfolio built with an architectural and brutalist aesthetic. This project leverages cutting-edge WebGL graphics and procedural animations to create a unique digital experience.
+[![Portfolio Status](https://img.shields.io/badge/Status-Live-c8ff00?style=for-the-badge)](#)
+[![Stack](https://img.shields.io/badge/Stack-React_|_Three.js_|_GSAP-blue?style=for-the-badge)](#)
+[![Performance](https://img.shields.io/badge/Performance-60FPS-orange?style=for-the-badge)](#)
 
----
-
-## 🏗️ The Vision
-The design is centered around **"Architectural Brutalism"** — combining massive typographic elements, distinct grid systems, and complex 3D visualizations to showcase technical depth and creative precision.
-
----
-
-## ⚡ Technical Core (The Stack)
-*   **Framework**: [React](https://reactjs.org/) + [Vite](https://vitejs.dev/) (High-speed development & HMR)
-*   **3D Engine**: [Three.js](https://threejs.org/) via [React Three Fiber](https://docs.pmnd.rs/react-three-fiber) & [Drei](https://github.com/pmnd.rs/drei)
-*   **Animation**: [GSAP](https://greensock.com/gsap/) + [ScrollTrigger](https://greensock.com/scrolltrigger/)
-*   **Smooth Scroll**: [Lenis](https://github.com/darkroomengineering/lenis)
-*   **Styling**: Vanilla SCSS (Modular & Token-based)
+A high-fidelity digital portfolio engineering showcase. This project bridges the gap between modern full-stack web development and immersive WebGL creative coding, featuring a custom-built 3D engine and a brutalist design system.
 
 ---
 
-## 🎨 Key Experiences & Animations
+## 🛠️ Technical Ecosystem
 
-### 1. Brutalist Intro Sequence
-A custom-built entry sequence synchronized with session storage:
-- **Visuals**: A procedural CSS grid-mesh with a subtle curved 3D mask.
-- **Counter**: A massive percentage counter (0% → 100%) in signature **Brand Green (#c8ff00)**.
-- **Orchestration**: A single GSAP master timeline handles the transition from loading to the Hero reveal with a vertical "curtain" lift effect.
-
-### 2. The 3D Galactic Hero
-A procedural Spiral Galaxy simulation replacing standard background particles:
-- **Math**: Logarithmic spiral distribution using a power-law density model.
-- **Scale**: 15,000 individually rendered particles with vertex colors.
-- **Aesthetic**: A "Hubble-style" palette transitioning from a hot white/orange core to deep nebula blues.
-- **Interaction**: Gentle continuous rotation with subtle mouse-parallax tilt.
-
-### 3. Kinetic "Data Wires" (Experience Section)
-A vertical 3D visualization that runs alongside the career timeline:
-- **Logic**: Thousands of procedural points forming thin threads/wires.
-- **Scroll Sync**: The geometry reacts to your scroll position, making the career history feel "wired together" and architectural.
-- **Material**: Glowing additive blending for a high-end digital feel.
-
-### 4. Holographic Project Cards
-Projects are presented with a technical hologram effect:
-- **Mesh**: Floating geometric primitives.
-- **Effect**: Custom GLSL shaders providing a "scanning" or "hologram" flicker on hover.
+### **The Core Stack**
+- **Framework**: [React 18](https://reactjs.org/) with [Vite](https://vitejs.dev/) as the build orchestrator.
+- **3D Engine**: [Three.js](https://threejs.org/) via [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber) and [@react-three/drei](https://github.com/pmnd.rs/drei).
+- **Animation System**: [GSAP 3](https://greensock.com/gsap/) with [ScrollTrigger](https://greensock.com/scrolltrigger/) for scroll-bound cinematic timelines.
+- **Motion**: [Lenis](https://github.com/studio-freight/lenis) for smooth, decoupled kinetic scrolling.
+- **Styles**: Modular [SCSS](https://sass-lang.com/) leveraging a deep token system and fluid `clamp()` math.
 
 ---
 
-## 📱 Mobile Optimization
-The site underwent a full responsiveness audit for the **393x873 (iPhone 14)** viewport:
-- **Fluid Typography**: Uses CSS `clamp()` for nearly all text elements.
-- **Performance**: High-cost WebGL canvases are conditionally hidden or simplified on mobile to ensure smooth 60FPS scrolling.
-- **Layout**: Grid systems collapse intelligently while maintaining the brutalist visual weight.
+## 🌌 High-Performance Visuals
+
+The portfolio utilizes 100% custom-built 3D visualizations rather than simple textures:
+
+### **1. Spherical Cloud Core (Hero)**
+- **System**: Randomized 4,000-particle spherical distribution. 
+- **Physics**: Ambient rotation mixed with pointer-parallax lerping for depth perception.
+- **Rendering**: Additive blending with a specific `#c1ff00` brand-green tint for high-contrast visibility.
+
+### **2. The Kinetic "DataSpine" (Experience)**
+- **Architecture**: A multi-threaded system consisting of 5 independent wires, each containing 80 procedural points.
+- **Dynamic Logic**: As the user scrolls, the wires calculate their proximity to the viewport center and "straighten" out via `lerp()` logic, symbolizing clarity and data alignment.
+- **Active States**: High-precision hover tracking glows the `#c8ff00` accent color specifically on segments related to the active career item.
+
+### **3. Mathematical Hologram Card (Projects)**
+- **Shaders**: Custom GLSL Vertex and Fragment shaders.
+- **Vertex Logic**: Real-time wave distortion using `sin()` math linked to hover intensity.
+- **Fragment Logic**: A mathematical implementation of `object-fit: cover` logic executed directly on the GPU for zero-latency image scaling.
+- **Effects**: Spectral green tinting and pointer-reactive rotation.
 
 ---
 
-## 📂 Project Structure
+## 🏗️ Design System & Responsiveness
+
+- **Typographic Scale**: Fluid headings (`Barlow Condensed`) and body text (`Inter`) scaling seamlessly from mobile to wide displays using `clamp()` logic.
+- **Tone**: Brutalist architectural aesthetic featuring heavy borders, massive headings, and subtle grain effects.
+- **Mobile-First Audit**: Optimized for the iPhone 14 (393x873) viewport. WebGL canvases conditionally scale resolution or particle counts to preserve battery and maintain 60FPS on mobile devices.
+
+---
+
+## 📂 Project Anatomy
+
 ```text
 src/
 ├── components/
-│   ├── canvas/       # Three.js / WebGL Components (Galaxy, Wires, etc.)
-│   ├── ui/           # Reusable UI elements (Buttons, SplitHeadings)
-│   ├── sections/     # Modular Page Sections (Hero, About, Services)
-│   └── layout/       # Layout wrappers (Navbar, Footer, GridOverlay)
-├── styles/           # Global SCSS (Variables, Mixins, Typography)
-├── lib/              # Library configurations (GSAP, Lenis)
-├── pages/            # Page templates (Overview, TechStack, Projects)
-└── data/             # Content data (experience.js, projects.js)
+│   ├── canvas/       # 3D Engines (DataSpine, HeroParticles, Shaders)
+│   ├── layout/       # Frame logic (IntroLoader, Navbar, NavOverlay)
+│   ├── sections/     # Content modules (Hero, About, Projects, Experience)
+│   └── ui/           # Atomic Design elements (StatCounter, SplitHeading)
+├── data/             # Project & Career source of truth
+├── hooks/            # Physics and event-tracking hooks
+├── lib/              # GSAP / Lenis singletons
+└── styles/           # SCSS Design Tokens (_variables.scss)
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Development & Deployment
 
-1.  **Clone the Repo**:
+### **Installation**
+1.  **Clone the Repository**:
     ```bash
-    git clone [repository-url]
+    git clone https://github.com/VedantBende/Portfolio-1.0.git
     ```
 2.  **Install Dependencies**:
     ```bash
     npm install
     ```
-3.  **Run Development Server**:
+3.  **Start Dev Server**:
     ```bash
     npm run dev
     ```
-4.  **Special Commands**:
-    - **Force Intro Replay**: Access `http://localhost:5173/?intro=1` to see the preloader again.
+
+### **Production Build**
+To generate a highly optimized production bundle:
+```bash
+npm run build
+```
 
 ---
 
-Built with ⚡ by **Vedant Bende**
+## 🤝 Creative Credits
+- **Smooth Scroll**: [Studio Freight / Lenis](https://lenis.darkroom.engineering/)
+- **Animation Framework**: [GreenSock (GSAP)](https://greensock.com/)
+- **3D Render System**: [React Three Fiber](https://docs.pmnd.rs/react-three-fiber)
+- **Asset Hosting**: [Cloudinary](https://cloudinary.com/)
+
+---
+
+<p align="center">
+  Designed & Engineered with ❤️ by <strong>Vedant Bende</strong><br/>
+  <em>Portfolio 2026 — Version 1.0.0</em>
+</p>
