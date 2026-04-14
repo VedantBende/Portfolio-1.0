@@ -1,0 +1,100 @@
+// ============================================
+// TYPOGRAPHY — Font Classes & Utilities
+// ============================================
+@use './variables' as *;
+
+.font-heading {
+  font-family: $font-heading;
+  text-transform: uppercase;
+}
+
+.font-body {
+  font-family: $font-body;
+}
+
+// Display sizes
+.text-hero {
+  font-family: $font-heading;
+  font-size: $fs-hero;
+  font-weight: $fw-black;
+  line-height: $lh-tight;
+  letter-spacing: $ls-tight;
+  text-transform: uppercase;
+}
+
+.text-display {
+  font-family: $font-heading;
+  font-size: $fs-display;
+  font-weight: $fw-bold;
+  line-height: $lh-heading;
+  letter-spacing: $ls-tight;
+  text-transform: uppercase;
+}
+
+.text-h1 {
+  font-family: $font-heading;
+  font-size: $fs-h1;
+  font-weight: $fw-bold;
+  line-height: $lh-heading;
+  text-transform: uppercase;
+}
+
+.text-h2 {
+  font-family: $font-heading;
+  font-size: $fs-h2;
+  font-weight: $fw-bold;
+  line-height: $lh-heading;
+  text-transform: uppercase;
+}
+
+.text-h3 {
+  font-family: $font-heading;
+  font-size: $fs-h3;
+  font-weight: $fw-semibold;
+  line-height: $lh-heading;
+  text-transform: uppercase;
+}
+
+.text-h4 {
+  font-family: $font-heading;
+  font-size: $fs-h4;
+  font-weight: $fw-medium;
+  line-height: $lh-heading;
+  text-transform: uppercase;
+}
+
+.text-body {
+  font-family: $font-body;
+  font-size: $fs-body;
+  font-weight: $fw-regular;
+  line-height: $lh-body;
+}
+
+.text-body-lg {
+  font-family: $font-body;
+  font-size: $fs-body-lg;
+  font-weight: $fw-regular;
+  line-height: $lh-body;
+}
+
+.text-small {
+  font-family: $font-body;
+  font-size: $fs-small;
+  font-weight: $fw-regular;
+  line-height: $lh-body;
+}
+
+.text-label {
+  font-family: $font-body;
+  font-size: $fs-label;
+  font-weight: $fw-medium;
+  letter-spacing: $ls-wider;
+  text-transform: uppercase;
+  color: $color-text-muted;
+}
+
+// Color utilities
+.text-primary { color: $color-text-primary; }
+.text-secondary { color: $color-text-secondary; }
+.text-muted { color: $color-text-muted; }
+.text-accent { color: $color-accent; }

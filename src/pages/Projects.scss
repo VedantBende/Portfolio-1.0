@@ -1,0 +1,298 @@
+.projects-page {
+  overflow: hidden;
+  position: relative; // Lock overlay bounds
+
+  &__hero {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: $space-4xl;
+    position: relative;
+    z-index: 100;
+  }
+
+  &__content {
+    padding: $space-3xl 0 $space-5xl;
+    position: relative;
+    z-index: 100;
+    pointer-events: none; // Let events pass to canvas
+
+    * {
+      pointer-events: auto; // Reactivate for all children elements
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    margin-bottom: $space-xl;
+  }
+
+  &__label-line {
+    width: 40px;
+    height: 1px;
+    background-color: $color-accent;
+  }
+
+  &__label-text {
+    font-family: $font-body;
+    font-size: $fs-label;
+    font-weight: $fw-medium;
+    letter-spacing: $ls-widest;
+    text-transform: uppercase;
+    color: $color-text-muted;
+  }
+
+  &__content {
+    padding: $space-3xl 0 $space-5xl;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3xl;
+  }
+
+  &__card {
+    display: grid;
+    grid-template-columns: 1fr 1fr; // 50/50 split on desktop
+    gap: $space-3xl;
+    padding: $space-3xl;
+    background-color: $color-bg-card;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    position: relative;
+    overflow: hidden;
+    transition: border-color $duration-normal $ease-smooth,
+                transform $duration-normal $ease-smooth;
+
+    &:hover {
+      border-color: $color-border-accent;
+      transform: translateY(-4px);
+    }
+    
+    @media (max-width: $bp-tablet) {
+      grid-template-columns: 1fr; // Stack on mobile
+    }
+  }
+
+  &__card-content {
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+    position: relative;
+    z-index: 10; // Keep text above background elements
+  }
+
+  &__card-visual {
+    position: relative;
+    height: 100%;
+    min-height: 300px;
+    border-radius: $radius-md;
+    overflow: hidden;
+    // Slight inner tint
+    background-color: rgba(255, 255, 255, 0.02);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    @media (max-width: $bp-tablet) {
+      display: none; // Handled by isMobile flag mostly
+    }
+  }
+
+  &__card-logo-wrapper {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: opacity $duration-normal $ease-smooth, transform $duration-normal $ease-smooth;
+    pointer-events: none; // lets hover triggers pass through
+    
+    &.is-hidden {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+
+  &__card-logo {
+    max-width: 60%;
+    max-height: 60%;
+    object-fit: contain;
+    opacity: 0.8;
+  }
+
+  &__card-canvas-container {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+  }
+
+  &__card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__card-number {
+    font-family: $font-body;
+    font-size: $fs-label;
+    font-weight: $fw-medium;
+    color: $color-accent;
+    letter-spacing: $ls-wider;
+  }
+
+  &__card-category {
+    font-family: $font-body;
+    font-size: $fs-label;
+    font-weight: $fw-medium;
+    letter-spacing: $ls-wider;
+    text-transform: uppercase;
+    color: $color-text-muted;
+    padding: $space-xs $space-md;
+    border: 1px solid $color-border;
+    border-radius: $radius-full;
+  }
+
+  &__card-title {
+    font-family: $font-heading;
+    font-size: $fs-h2;
+    font-weight: $fw-bold;
+    text-transform: uppercase;
+    color: $color-text-primary;
+  }
+
+  &__card-description {
+    font-family: $font-body;
+    font-size: $fs-body-lg;
+    line-height: $lh-relaxed;
+    color: $color-text-secondary;
+    max-width: 700px;
+  }
+
+  &__card-focus {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+  }
+
+  &__card-focus-label {
+    font-family: $font-body;
+    font-size: $fs-label;
+    font-weight: $fw-medium;
+    letter-spacing: $ls-wider;
+    text-transform: uppercase;
+    color: $color-text-muted;
+  }
+
+  &__card-focus-value {
+    font-family: $font-body;
+    font-size: $fs-body;
+    color: $color-accent;
+    font-weight: $fw-medium;
+  }
+
+  &__card-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+    padding: $space-md 0;
+  }
+
+  &__highlight {
+    display: flex;
+    align-items: baseline;
+    gap: $space-md;
+    font-family: $font-body;
+    font-size: $fs-body;
+    color: $color-text-secondary;
+    line-height: $lh-body;
+  }
+
+  &__highlight-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: $color-accent;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  &__card-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-sm;
+    margin-top: $space-sm;
+  }
+
+  &__stack-tag {
+    font-family: $font-body;
+    font-size: $fs-label;
+    letter-spacing: $ls-wide;
+    text-transform: uppercase;
+    color: $color-text-muted;
+    padding: $space-xs $space-md;
+    border: 1px solid $color-border;
+    border-radius: $radius-full;
+    transition: border-color $duration-fast $ease-smooth,
+                color $duration-fast $ease-smooth;
+
+    &:hover {
+      border-color: $color-accent;
+      color: $color-accent;
+    }
+  }
+
+  &__card-links {
+    display: flex;
+    gap: $space-xl;
+    margin-top: $space-md;
+    padding-top: $space-xl;
+    border-top: 1px dashed $color-border-light;
+  }
+
+  &__link-btn {
+    font-family: $font-heading;
+    font-size: $fs-h4;
+    font-weight: $fw-bold;
+    text-transform: uppercase;
+    color: $color-text-primary;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: $space-xs;
+    letter-spacing: $ls-wide;
+    transition: color $duration-normal $ease-smooth;
+
+    .arrow {
+      font-size: 1.1em;
+      transition: transform $duration-normal $ease-smooth;
+    }
+
+    &:hover {
+      color: $color-accent;
+      
+      .arrow {
+        transform: translate(3px, -3px);
+      }
+    }
+  }
+
+  @media (max-width: $bp-mobile) {
+    &__card {
+      padding: $space-lg;
+    }
+
+    &__card-title {
+      font-size: $fs-h3;
+    }
+
+    &__card-links {
+      flex-direction: column;
+      gap: $space-lg;
+      align-items: flex-start;
+    }
+  }
+}

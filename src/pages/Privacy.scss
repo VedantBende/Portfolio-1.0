@@ -1,0 +1,72 @@
+.privacy-page {
+  overflow: hidden;
+
+  &__hero {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: $space-3xl;
+  }
+
+  &__heading {
+    margin: 0;
+  }
+
+  &__content {
+    padding: $space-2xl 0 $space-6xl;
+  }
+
+  &__body {
+    max-width: 700px;
+
+    h2 {
+      font-family: $font-heading;
+      font-size: $fs-h3;
+      font-weight: $fw-bold;
+      text-transform: uppercase;
+      color: $color-text-primary;
+      margin-top: $space-3xl;
+      margin-bottom: $space-md;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    p {
+      font-family: $font-body;
+      font-size: $fs-body-lg;
+      line-height: $lh-relaxed;
+      color: $color-text-secondary;
+      margin-bottom: $space-lg;
+    }
+
+    a {
+      color: $color-accent;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color $duration-fast $ease-smooth;
+
+      &:hover {
+        color: $color-accent-hover;
+      }
+    }
+  }
+
+  &__back {
+    margin-top: $space-4xl;
+    padding-top: $space-2xl;
+    border-top: 1px solid $color-border;
+  }
+
+  &__back-link {
+    font-family: $font-body;
+    font-size: $fs-body;
+    color: $color-text-secondary;
+    text-decoration: none;
+    transition: color $duration-fast $ease-smooth;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}

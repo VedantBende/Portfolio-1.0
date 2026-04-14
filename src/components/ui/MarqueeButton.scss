@@ -1,0 +1,58 @@
+.marquee-btn {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid $color-border-light;
+  border-radius: $radius-full;
+  padding: $space-md $space-2xl;
+  text-decoration: none;
+  overflow: hidden;
+  transition: border-color $duration-normal $ease-smooth,
+              background-color $duration-normal $ease-smooth;
+
+  &:hover {
+    border-color: $color-accent;
+    background-color: $color-accent-dim;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    transition: transform $duration-slow $ease-out-expo;
+  }
+
+  &:hover &__inner {
+    transform: translateX(-100%);
+  }
+
+  &__text {
+    font-family: $font-heading;
+    font-size: clamp(0.875rem, 1.25vw, 1.25rem);
+    font-weight: $fw-semibold;
+    letter-spacing: $ls-wide;
+    text-transform: uppercase;
+    color: $color-text-primary;
+    white-space: nowrap;
+    min-width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 0 $space-md;
+    flex-shrink: 0;
+    transition: color $duration-normal $ease-smooth;
+
+    &--clone {
+      color: $color-accent;
+    }
+  }
+
+  &:hover &__text {
+    color: $color-accent;
+  }
+
+  @media (max-width: $bp-mobile) {
+    padding: $space-md $space-lg;
+    width: 100%;
+    justify-content: center;
+    max-width: 100%;
+  }
+}

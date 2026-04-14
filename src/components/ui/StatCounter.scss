@@ -1,0 +1,35 @@
+.stat-counter {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+
+  &__value {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &__number {
+    font-family: $font-heading;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: $fw-black;
+    line-height: $lh-tight;
+    color: $color-text-primary;
+  }
+
+  &__suffix {
+    font-family: $font-heading;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: $fw-bold;
+    color: $color-accent;
+    margin-left: $space-xs;
+  }
+
+  &__label {
+    font-family: $font-body;
+    font-size: $fs-small;
+    font-weight: $fw-medium;
+    letter-spacing: $ls-wider;
+    text-transform: uppercase;
+    color: $color-text-muted;
+  }
+}

@@ -1,0 +1,43 @@
+.timeline-wrapper {
+  position: relative;
+  padding: $space-3xl 0;
+
+  &__line {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      $color-accent 0%,
+      rgba($color-accent, 0.3) 50%,
+      rgba($color-accent, 0.05) 100%
+    );
+    transform-origin: top;
+    will-change: transform;
+    opacity: 0.2; // Dimmed to let the 3D spine shine
+
+    @media (min-width: $bp-tablet) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  // 3D Canvas wrapper matches the line offset
+  .canvas-wrapper-absolute {
+    transform: translateX(calc(20px - 50%));
+    
+    @media (min-width: $bp-tablet) {
+      transform: translateX(0);
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3xl;
+    position: relative;
+    z-index: 2;
+  }
+}

@@ -1,0 +1,57 @@
+// ============================================
+// GRID — 12-Column Decorative Overlay
+// ============================================
+@use './variables' as *;
+
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $z-grid-overlay;
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  gap: $grid-gap;
+  padding: 0 $grid-margin;
+  max-width: $grid-max-width;
+  margin: 0 auto;
+
+  .grid-line {
+    border-left: 1px solid rgba($color-white, 0.03);
+    height: 100%;
+
+    &:last-child {
+      border-right: 1px solid rgba($color-white, 0.03);
+    }
+  }
+}
+
+// Content grid for sections
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  gap: $grid-gap;
+  max-width: $grid-max-width;
+  margin: 0 auto;
+  padding: 0 $grid-margin;
+}
+
+// Span utilities
+.col-span-full { grid-column: 1 / -1; }
+.col-span-6 { grid-column: span 6; }
+.col-span-4 { grid-column: span 4; }
+.col-span-3 { grid-column: span 3; }
+.col-span-8 { grid-column: span 8; }
+.col-span-10 { grid-column: span 10; }
+
+@media (max-width: $bp-tablet) {
+  .col-span-6,
+  .col-span-4,
+  .col-span-3,
+  .col-span-8,
+  .col-span-10 {
+    grid-column: 1 / -1;
+  }
+}

@@ -1,0 +1,139 @@
+.footer {
+  position: relative;
+  z-index: $z-footer;
+  background-color: $color-bg-primary;
+  padding: $space-5xl 0 $space-2xl;
+
+  &__content {
+    max-width: $grid-max-width;
+    margin: 0 auto;
+    padding: 0 $grid-margin;
+  }
+
+  &__cta {
+    padding-bottom: $space-4xl;
+    display: flex;
+    flex-direction: column;
+    gap: $space-xl;
+  }
+
+  &__cta-heading {
+    font-family: $font-heading;
+    font-size: clamp(2.5rem, 8vw, 7rem);
+    font-weight: $fw-black;
+    line-height: $lh-tight;
+    text-transform: uppercase;
+    color: $color-text-primary;
+  }
+
+  &__cta-email {
+    font-family: $font-body;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: $color-text-secondary;
+    text-decoration: none;
+    transition: color $duration-normal $ease-smooth;
+    display: inline-block;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: $color-accent;
+      transition: width $duration-normal $ease-smooth;
+    }
+
+    &:hover {
+      color: $color-accent;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-2xl;
+    padding: $space-3xl 0;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+  }
+
+  &__col-label {
+    font-family: $font-body;
+    font-size: $fs-label;
+    font-weight: $fw-medium;
+    letter-spacing: $ls-wider;
+    text-transform: uppercase;
+    color: $color-text-muted;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+  }
+
+  &__nav-link {
+    font-family: $font-body;
+    font-size: $fs-body;
+    color: $color-text-secondary;
+    text-decoration: none;
+    transition: color $duration-fast $ease-smooth;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+
+  &__location {
+    font-family: $font-body;
+    font-size: $fs-body;
+    color: $color-text-secondary;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: $space-2xl;
+  }
+
+  &__copyright,
+  &__credit {
+    font-family: $font-body;
+    font-size: $fs-small;
+    color: $color-text-muted;
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .footer {
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__bottom {
+      flex-direction: column;
+      gap: $space-sm;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .footer {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

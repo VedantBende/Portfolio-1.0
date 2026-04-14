@@ -1,0 +1,153 @@
+.about-page {
+  overflow: hidden;
+
+  &__hero {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: $space-4xl;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    margin-bottom: $space-xl;
+  }
+
+  &__label-line {
+    width: 40px;
+    height: 1px;
+    background-color: $color-accent;
+  }
+
+  &__label-text {
+    font-family: $font-body;
+    font-size: $fs-label;
+    font-weight: $fw-medium;
+    letter-spacing: $ls-widest;
+    text-transform: uppercase;
+    color: $color-text-muted;
+  }
+
+  &__bio-section {
+    padding: $space-4xl 0;
+  }
+
+  &__bio {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg;
+
+    p {
+      font-family: $font-body;
+      font-size: $fs-body-lg;
+      line-height: $lh-relaxed;
+      color: $color-text-secondary;
+    }
+  }
+
+  &__section-heading {
+    margin-bottom: $space-3xl;
+  }
+
+  &__philosophy {
+    padding: $space-5xl 0;
+    background-color: $color-bg-secondary;
+  }
+
+  &__philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-2xl;
+  }
+
+  &__philosophy-item {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+    padding: $space-2xl;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    transition: border-color $duration-normal $ease-smooth,
+                background-color $duration-normal $ease-smooth;
+
+    &:hover {
+      border-color: $color-border-accent;
+      background-color: $color-bg-card;
+    }
+  }
+
+  &__philosophy-number {
+    font-family: $font-body;
+    font-size: $fs-label;
+    font-weight: $fw-medium;
+    color: $color-accent;
+    letter-spacing: $ls-wider;
+  }
+
+  &__philosophy-title {
+    font-family: $font-heading;
+    font-size: $fs-h3;
+    font-weight: $fw-bold;
+    text-transform: uppercase;
+    color: $color-text-primary;
+  }
+
+  &__philosophy-desc {
+    font-family: $font-body;
+    font-size: $fs-body;
+    line-height: $lh-relaxed;
+    color: $color-text-secondary;
+  }
+
+  &__values {
+    padding: $space-5xl 0;
+  }
+
+  &__values-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-lg;
+  }
+
+  &__value {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    padding: $space-md $space-xl;
+    border: 1px solid $color-border;
+    border-radius: $radius-full;
+    transition: border-color $duration-fast $ease-smooth;
+
+    &:hover {
+      border-color: $color-accent;
+    }
+  }
+
+  &__value-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $color-accent;
+  }
+
+  &__value-text {
+    font-family: $font-body;
+    font-size: $fs-body;
+    font-weight: $fw-medium;
+    color: $color-text-primary;
+  }
+
+  &__cta {
+    padding: $space-4xl 0;
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .about-page {
+    &__philosophy-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

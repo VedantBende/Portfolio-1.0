@@ -1,0 +1,20 @@
+.live-clock {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+
+  &__time {
+    font-family: $font-body;
+    font-size: $fs-body;
+    color: $color-text-secondary;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__zone {
+    font-family: $font-body;
+    font-size: $fs-label;
+    color: $color-text-muted;
+    text-transform: uppercase;
+    letter-spacing: $ls-wider;
+  }
+}

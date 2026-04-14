@@ -1,0 +1,33 @@
+.category-section {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xl;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+  }
+
+  &__line {
+    width: 30px;
+    height: 2px;
+    background-color: $color-accent;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: $fs-h3;
+    font-weight: $fw-bold;
+    text-transform: uppercase;
+    color: $color-text-primary;
+    letter-spacing: $ls-wide;
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $grid-gap;
+    align-items: center; // Forced vertical center for all tags
+  }
+}

@@ -1,0 +1,118 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  background-color: $color-bg-primary;
+
+  &__canvas-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0; // Handled by GSAP
+    pointer-events: auto;
+    
+    // Ensure the canvas doesn't obscure UI interactions below it
+    canvas {
+      outline: none;
+    }
+  }
+
+  &__content {
+    max-width: $grid-max-width;
+    width: 100%;
+    padding: 0 $grid-margin;
+    display: flex;
+    flex-direction: column;
+    gap: $space-2xl;
+    position: relative;
+    z-index: 10;
+    pointer-events: none; // let canvas receive mouse move
+    
+    // Important: let interactive elements inside content receive pointer events
+    * {
+      pointer-events: auto;
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+  }
+
+  &__label-line {
+    width: 40px;
+    height: 1px;
+    background-color: $color-accent;
+  }
+
+  &__label-text {
+    font-family: $font-body;
+    font-size: $fs-label;
+    font-weight: $fw-medium;
+    letter-spacing: $ls-widest;
+    text-transform: uppercase;
+    color: $color-text-muted;
+  }
+
+  &__heading {
+    margin: 0;
+  }
+
+  &__subtitle {
+    font-family: $font-body;
+    font-size: $fs-body-lg;
+    font-weight: $fw-regular;
+    line-height: $lh-relaxed;
+    color: $color-text-secondary;
+    max-width: 600px;
+  }
+
+  &__stats {
+    display: flex;
+    gap: $space-4xl;
+    margin-top: $space-xl;
+  }
+
+  &__scroll-indicator {
+    position: absolute;
+    bottom: $space-3xl;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-sm;
+  }
+
+  &__scroll-text {
+    font-family: $font-body;
+    font-size: $fs-label;
+    letter-spacing: $ls-widest;
+    text-transform: uppercase;
+    color: $color-text-muted;
+  }
+
+  &__scroll-arrow {
+    font-size: 1.25rem;
+    color: $color-accent;
+  }
+  @media (max-width: $bp-tablet) {
+    &__stats {
+      flex-direction: column;
+      gap: $space-xl;
+    }
+  }
+
+  @media (max-width: $bp-mobile) {
+    &__content {
+      gap: $space-xl; // Pull elements closer vertically
+    }
+    
+    &__stats {
+      gap: $space-lg; // Further reduce distance between stats
+    }
+  }
+}

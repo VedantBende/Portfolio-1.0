@@ -1,0 +1,66 @@
+// ============================================
+// CURSOR — Custom Cursor Styles
+// ============================================
+@use './variables' as *;
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $cursor-dot-size;
+  height: $cursor-dot-size;
+  background-color: $color-accent;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: $z-cursor;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $cursor-ring-size;
+  height: $cursor-ring-size;
+  border: $cursor-ring-border solid $color-text-primary;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: $z-cursor;
+  transform: translate(-50%, -50%);
+  opacity: 0.4;
+  will-change: transform;
+  transition: width $duration-normal $ease-smooth,
+              height $duration-normal $ease-smooth,
+              opacity $duration-fast $ease-smooth,
+              border-color $duration-fast $ease-smooth;
+}
+
+// Hover states
+.cursor-hover .cursor-ring {
+  width: 60px;
+  height: 60px;
+  border-color: $color-accent;
+  opacity: 0.6;
+}
+
+.cursor-hover .cursor-dot {
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+// Hide on touch devices
+@media (hover: none) and (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+
+  body {
+    cursor: auto;
+  }
+
+  a, button {
+    cursor: pointer;
+  }
+}

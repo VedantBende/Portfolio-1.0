@@ -1,0 +1,117 @@
+.disciplines {
+  background-color: $color-bg-primary;
+  padding: $space-6xl 0;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3xl;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+  }
+
+  &__label-line {
+    width: 40px;
+    height: 1px;
+    background-color: $color-accent;
+  }
+
+  &__label-text {
+    font-family: $font-body;
+    font-size: $fs-label;
+    font-weight: $fw-medium;
+    letter-spacing: $ls-widest;
+    text-transform: uppercase;
+    color: $color-text-muted;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-2xl;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+    padding: $space-2xl;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    transition: border-color $duration-normal $ease-smooth,
+                background-color $duration-normal $ease-smooth,
+                transform $duration-normal $ease-smooth;
+
+    &:hover {
+      border-color: $color-border-accent;
+      background-color: $color-bg-card;
+      transform: translateY(-4px);
+    }
+  }
+
+  &__item-number {
+    font-family: $font-body;
+    font-size: $fs-label;
+    font-weight: $fw-medium;
+    letter-spacing: $ls-wider;
+    color: $color-accent;
+  }
+
+  &__item-title {
+    font-family: $font-heading;
+    font-size: $fs-h3;
+    font-weight: $fw-bold;
+    text-transform: uppercase;
+    color: $color-text-primary;
+  }
+
+  &__item-description {
+    font-family: $font-body;
+    font-size: $fs-body;
+    line-height: $lh-relaxed;
+    color: $color-text-secondary;
+  }
+
+  &__item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-sm;
+    margin-top: auto;
+  }
+
+  &__tag {
+    font-family: $font-body;
+    font-size: $fs-label;
+    letter-spacing: $ls-wide;
+    text-transform: uppercase;
+    color: $color-text-muted;
+    padding: $space-xs $space-md;
+    border: 1px solid $color-border;
+    border-radius: $radius-full;
+    transition: border-color $duration-fast $ease-smooth,
+                color $duration-fast $ease-smooth;
+  }
+
+  &__item:hover &__tag {
+    border-color: $color-border-light;
+    color: $color-text-secondary;
+  }
+}
+
+@media (max-width: $bp-laptop) {
+  .disciplines__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .disciplines {
+    &__item {
+      padding: $space-lg; // Give narrow displays more room
+    }
+  }
+}

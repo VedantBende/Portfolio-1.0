@@ -1,0 +1,40 @@
+.cta-banner {
+  background-color: $color-bg-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-2xl;
+  }
+
+  &__heading {
+    max-width: 900px;
+  }
+
+  &__sub {
+    font-family: $font-body;
+    font-size: $fs-body-lg;
+    color: $color-text-secondary;
+    line-height: $lh-relaxed;
+    max-width: 500px;
+  }
+
+  &__button {
+    margin-top: $space-lg;
+  }
+
+  @media (max-width: $bp-mobile) {
+    &__content {
+      gap: $space-xl;
+    }
+
+    &__sub {
+      font-size: $fs-body;
+    }
+  }
+}

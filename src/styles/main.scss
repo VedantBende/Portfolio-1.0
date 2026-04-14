@@ -1,0 +1,65 @@
+// ============================================
+// MAIN SCSS — Global Import Hub
+// ============================================
+
+@use './variables' as *;
+@use './reset';
+@use './typography';
+@use './grid';
+@use './cursor';
+@use './animations';
+
+// ============================================
+// SECTION STYLES
+// ============================================
+
+.section {
+  position: relative;
+  padding: $section-padding-y $section-padding-x;
+  overflow: hidden;
+
+  @media (max-width: $bp-mobile) {
+    // Keep width the same but reduce vertical whitespace
+    padding: clamp(2rem, 8vh, 4rem) $section-padding-x;
+  }
+}
+
+.section-full {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+// Container
+.container {
+  max-width: $grid-max-width;
+  margin: 0 auto;
+  padding: 0 $grid-margin;
+  width: 100%;
+}
+
+// Dividers
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: $color-border;
+  border: none;
+}
+
+.divider-accent {
+  background-color: $color-accent;
+}
+
+// Visually hidden (SEO)
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

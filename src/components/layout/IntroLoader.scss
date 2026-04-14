@@ -1,0 +1,112 @@
+// ============================================
+// INTRO LOADER — Full-screen brutalist preloader
+// ============================================
+
+.intro-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000; // Above everything including cursor
+  background-color: $color-bg-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  // ─── Grid Mesh Background ───
+  &__mesh {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    // Create a curved vertical grid using repeating gradients + radial mask
+    background-image: repeating-linear-gradient(
+        90deg,
+        rgba($color-accent, 0.07) 0px,
+        rgba($color-accent, 0.07) 1px,
+        transparent 1px,
+        transparent 80px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        rgba($color-accent, 0.04) 0px,
+        rgba($color-accent, 0.04) 1px,
+        transparent 1px,
+        transparent 80px
+      );
+    // Radial mask so the grid "bends" around the center
+    mask-image: radial-gradient(
+      ellipse 80% 70% at 50% 50%,
+      black 0%,
+      transparent 100%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse 80% 70% at 50% 50%,
+      black 0%,
+      transparent 100%
+    );
+  }
+
+  // ─── VB Logo ───
+  &__logo {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: clamp(80px, 12vw, 160px);
+      height: auto;
+      filter: drop-shadow(0 0 40px rgba($color-accent, 0.2));
+      user-select: none;
+    }
+  }
+
+  // ─── Percentage Counter ───
+  &__counter {
+    position: absolute;
+    bottom: clamp(2rem, 5vh, 4rem);
+    right: clamp(2rem, 5vw, 4rem);
+    z-index: 2;
+    display: flex;
+    align-items: baseline;
+    gap: 0.1em;
+    will-change: transform;
+  }
+
+  &__counter-value {
+    font-family: $font-heading;
+    font-size: clamp(4rem, 20vw, 18rem);
+    font-weight: $fw-black;
+    line-height: 0.85;
+    color: $color-accent;
+    letter-spacing: -0.04em;
+    // Subtle text shadow for "glow" depth
+    text-shadow: 0 0 60px rgba($color-accent, 0.15),
+                 0 0 120px rgba($color-accent, 0.08);
+  }
+
+  &__counter-percent {
+    font-family: $font-heading;
+    font-size: clamp(1.5rem, 5vw, 4rem);
+    font-weight: $fw-bold;
+    color: $color-accent;
+    opacity: 0.6;
+  }
+
+  // ─── Bottom Label ───
+  &__label {
+    position: absolute;
+    bottom: clamp(2rem, 5vh, 4rem);
+    left: clamp(2rem, 5vw, 4rem);
+    z-index: 2;
+
+    span {
+      font-family: $font-body;
+      font-size: $fs-label;
+      font-weight: $fw-medium;
+      letter-spacing: $ls-widest;
+      text-transform: uppercase;
+      color: $color-text-muted;
+    }
+  }
+}

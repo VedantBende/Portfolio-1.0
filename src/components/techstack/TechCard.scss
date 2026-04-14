@@ -1,0 +1,58 @@
+.tech-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-lg $space-2xl;
+  background-color: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  overflow: hidden;
+  transition: transform $duration-normal $ease-smooth,
+              border-color $duration-normal $ease-smooth,
+              box-shadow $duration-normal $ease-smooth;
+
+  &:hover {
+    transform: scale(1.05);
+    border-color: $color-border-accent;
+    box-shadow: 0 0 20px rgba($color-accent, 0.1),
+                0 0 40px rgba($color-accent, 0.05);
+  }
+
+  &__name {
+    font-family: $font-body;
+    font-size: $fs-body;
+    font-weight: $fw-medium;
+    color: $color-text-primary;
+    letter-spacing: $ls-wide;
+    position: relative;
+    z-index: 2;
+    transition: color $duration-fast $ease-smooth;
+  }
+
+  &:hover &__name {
+    color: $color-accent;
+  }
+
+  &__glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%) scale(0);
+    background: radial-gradient(
+      circle,
+      rgba($color-accent, 0.08) 0%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    transition: transform $duration-slow $ease-out-expo;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &:hover &__glow {
+    transform: translate(-50%, -50%) scale(2);
+  }
+}

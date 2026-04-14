@@ -1,0 +1,79 @@
+.about-section {
+  background-color: $color-bg-primary;
+  padding: $space-6xl 0;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2xl;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__canvas-wrapper {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 500px;
+    opacity: 0; // Handled by gsap
+    pointer-events: none;
+    z-index: 1; // Pulled above background layer
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+  }
+
+  &__label-line {
+    width: 40px;
+    height: 1px;
+    background-color: $color-accent;
+  }
+
+  &__label-text {
+    font-family: $font-body;
+    font-size: $fs-label;
+    font-weight: $fw-medium;
+    letter-spacing: $ls-widest;
+    text-transform: uppercase;
+    color: $color-text-muted;
+  }
+
+  &__heading {
+    max-width: 900px;
+  }
+
+  &__text {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: $space-md;
+
+    p {
+      font-family: $font-body;
+      font-size: $fs-body-lg;
+      line-height: $lh-relaxed;
+      color: $color-text-secondary;
+    }
+  }
+
+  &__cta {
+    margin-top: $space-lg;
+  }
+
+  @media (max-width: $bp-mobile) {
+    padding: $space-3xl 0;
+    
+    &__canvas-wrapper {
+      display: none; // Absolute 500x500 bleeds off screen on mobile
+    }
+    
+    &__text p {
+      font-size: $fs-body; // Gracefully step down from body-lg
+    }
+  }
+}

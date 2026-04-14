@@ -1,0 +1,14 @@
+.split-heading {
+  overflow: hidden;
+  perspective: 600px;
+
+  .word {
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  .char {
+    display: inline-block;
+    will-change: transform, opacity;
+  }
+}

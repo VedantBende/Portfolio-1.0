@@ -1,0 +1,60 @@
+.techstack-page {
+  overflow: hidden;
+
+  &__hero {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: $space-4xl;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    margin-bottom: $space-xl;
+  }
+
+  &__label-line {
+    width: 40px;
+    height: 1px;
+    background-color: $color-accent;
+  }
+
+  &__label-text {
+    font-family: $font-body;
+    font-size: $fs-label;
+    font-weight: $fw-medium;
+    letter-spacing: $ls-widest;
+    text-transform: uppercase;
+    color: $color-text-muted;
+  }
+
+  &__intro {
+    font-family: $font-body;
+    font-size: $fs-body-lg;
+    line-height: $lh-relaxed;
+    color: $color-text-secondary;
+    max-width: 600px;
+    margin-top: $space-xl;
+  }
+
+  &__grid {
+    padding: $space-3xl 0 $space-6xl;
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .techstack-page {
+    &__hero {
+      padding-bottom: $space-2xl;
+    }
+    
+    &__intro {
+      font-size: $fs-body;
+    }
+    
+    &__grid {
+      padding: $space-xl 0 $space-3xl;
+    }
+  }
+}

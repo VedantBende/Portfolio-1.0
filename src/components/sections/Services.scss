@@ -1,0 +1,126 @@
+.services {
+  background-color: $color-bg-primary;
+  padding: $space-6xl 0;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $space-4xl;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xl;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+  }
+
+  &__label-line {
+    width: 40px;
+    height: 1px;
+    background-color: $color-accent;
+  }
+
+  &__label-text {
+    font-family: $font-body;
+    font-size: $fs-label;
+    font-weight: $fw-medium;
+    letter-spacing: $ls-widest;
+    text-transform: uppercase;
+    color: $color-text-muted;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card {
+    padding: $space-2xl 0;
+    border-top: 1px solid $color-border;
+    position: relative;
+    transition: background-color $duration-normal $ease-smooth;
+
+    &:last-child {
+      border-bottom: 1px solid $color-border;
+    }
+
+    &:hover {
+      background-color: $color-bg-hover;
+      padding-left: $space-lg;
+    }
+  }
+
+  &__card-header {
+    display: flex;
+    align-items: baseline;
+    gap: $space-xl;
+    margin-bottom: $space-md;
+  }
+
+  &__card-number {
+    font-family: $font-body;
+    font-size: $fs-label;
+    font-weight: $fw-medium;
+    letter-spacing: $ls-wider;
+    color: $color-accent;
+    min-width: 30px;
+  }
+
+  &__card-title {
+    font-family: $font-heading;
+    font-size: $fs-h3;
+    font-weight: $fw-bold;
+    text-transform: uppercase;
+    color: $color-text-primary;
+  }
+
+  &__card-description {
+    font-family: $font-body;
+    font-size: $fs-body;
+    line-height: $lh-relaxed;
+    color: $color-text-secondary;
+    max-width: 500px;
+    margin-left: calc(30px + $space-xl);
+  }
+
+  &__card-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: $color-accent;
+    transition: width $duration-slow $ease-out-expo;
+  }
+
+  &__card:hover &__card-line {
+    width: 100%;
+  }
+  @media (max-width: $bp-tablet) {
+    &__card-description {
+      margin-left: 0;
+      margin-top: $space-sm;
+    }
+
+    &__card-header {
+      flex-direction: column;
+      gap: $space-sm;
+    }
+  }
+
+  @media (max-width: $bp-mobile) {
+    &__card {
+      padding: $space-xl 0;
+      
+      &:hover {
+        padding-left: 0; // Disable indent shift on narrow viewports
+      }
+    }
+  }
+}

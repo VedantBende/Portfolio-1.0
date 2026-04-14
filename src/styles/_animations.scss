@@ -1,0 +1,104 @@
+// ============================================
+// ANIMATIONS — Reusable Transition Classes
+// ============================================
+@use './variables' as *;
+
+// Fade in from bottom
+.anim-fade-up {
+  opacity: 0;
+  transform: translateY(60px);
+  will-change: transform, opacity;
+}
+
+.anim-fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity $duration-slow $ease-out-expo,
+              transform $duration-slow $ease-out-expo;
+}
+
+// Fade in
+.anim-fade-in {
+  opacity: 0;
+  will-change: opacity;
+}
+
+.anim-fade-in.is-visible {
+  opacity: 1;
+  transition: opacity $duration-slow $ease-out-expo;
+}
+
+// Scale up
+.anim-scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+  will-change: transform, opacity;
+}
+
+.anim-scale-in.is-visible {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity $duration-slow $ease-out-expo,
+              transform $duration-slow $ease-out-expo;
+}
+
+// Slide in from left
+.anim-slide-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  will-change: transform, opacity;
+}
+
+.anim-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity $duration-slow $ease-out-expo,
+              transform $duration-slow $ease-out-expo;
+}
+
+// Slide in from right
+.anim-slide-right {
+  opacity: 0;
+  transform: translateX(40px);
+  will-change: transform, opacity;
+}
+
+.anim-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity $duration-slow $ease-out-expo,
+              transform $duration-slow $ease-out-expo;
+}
+
+// Line reveal (for decorative lines)
+.anim-line-reveal {
+  transform: scaleY(0);
+  transform-origin: top;
+  will-change: transform;
+}
+
+// Stagger delay helpers
+@for $i from 1 through 20 {
+  .anim-delay-#{$i} {
+    transition-delay: #{$i * 0.08}s !important;
+  }
+}
+
+// Split text character visibility
+.split-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+  will-change: transform, opacity;
+}
+
+// Page transition wrapper
+.page-transition {
+  opacity: 0;
+  will-change: opacity;
+}
+
+.page-transition.is-ready {
+  opacity: 1;
+  transition: opacity $duration-normal $ease-smooth;
+}
