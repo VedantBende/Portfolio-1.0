@@ -1,6 +1,16 @@
 export const experience = [
   {
     id: 1,
+    role: 'MERN Stack Developer Intern',
+    company: 'UptoSkills',
+    period: 'Mar 2026 – Jun 2026',
+    type: 'Internship',
+    description:
+      'Built onboarding and profile system with Google/email login, dynamically fetching user data and updating UI. Developed Preferences and Settings modules with improved UI/UX. Implemented Data Science course module, AI voiceover popup, and dynamic Analytics page. Improved dashboard by removing redundant elements and enhancing overall user experience.',
+    stack: ['React.js', 'Node.js', 'Express.js', 'PostgreSQL (Neon DB)', 'UI/UX'],
+  },
+  {
+    id: 2,
     role: 'Power BI Intern',
     company: 'Microsoft Elevate',
     period: 'Dec 2025 – Jan 2026',
@@ -10,7 +20,7 @@ export const experience = [
     stack: ['Power BI', 'DAX', 'Excel'],
   },
   {
-    id: 2,
+    id: 3,
     role: 'LLM Intern',
     company: 'VOIS & Vodafone Idea Foundation',
     period: 'Sep 2025 – Oct 2025',
@@ -20,7 +30,7 @@ export const experience = [
     stack: ['Python', 'LLMs', 'Prompt Engineering', 'NLP'],
   },
   {
-    id: 3,
+    id: 4,
     role: 'Frontend Intern',
     company: 'IBM SkillsBuild',
     period: 'Aug 2025 – Sept 2025',
@@ -30,7 +40,7 @@ export const experience = [
     stack: ['Vue.js', 'Vite', 'JavaScript', 'REST APIs'],
   },
   {
-    id: 4,
+    id: 5,
     role: 'AI Intern',
     company: 'TechSaksham — Microsoft & SAP',
     period: 'Jan 2025 – Feb 2025',
@@ -40,7 +50,7 @@ export const experience = [
     stack: ['Python', 'TensorFlow', 'CNN', 'Transfer Learning', 'Streamlit'],
   },
   {
-    id: 5,
+    id: 6,
     role: 'AI & Prompt Engineering Trainee',
     company: 'IBM SkillsBuild',
     period: 'Dec 2024',

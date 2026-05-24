@@ -78,13 +78,11 @@ export default function AboutSection() {
   return (
     <section ref={sectionRef} className="about-section section" id="about-section">
       <div className="about-section__content container">
-        {!isMobile && (
-          <div className="about-section__canvas-wrapper" ref={canvasRef}>
-            <Canvas camera={{ position: [0, 0, 8], fov: 45 }} dpr={[1, 2]}>
-              <FloatingGeometry />
-            </Canvas>
-          </div>
-        )}
+        <div className="about-section__canvas-wrapper" ref={canvasRef}>
+          <Canvas camera={{ position: [0, 0, 8], fov: 45 }} dpr={[1, 2]}>
+            <FloatingGeometry />
+          </Canvas>
+        </div>
         
         <div className="about-section__label">
           <span className="about-section__label-line" />

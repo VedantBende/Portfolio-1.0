@@ -80,13 +80,11 @@ export default function Hero() {
 
   return (
     <section ref={heroRef} className="hero section section-full" id="hero-section">
-      {!isMobile && (
-        <div className="hero__canvas-wrapper" ref={canvasRef}>
-          <Canvas camera={{ position: [0, 0, 15], fov: 45 }} dpr={[1, 2]}>
-            <HeroParticles />
-          </Canvas>
-        </div>
-      )}
+      <div className="hero__canvas-wrapper" ref={canvasRef}>
+        <Canvas camera={{ position: [0, 0, 15], fov: 45 }} dpr={[1, 2]}>
+          <HeroParticles isMobile={isMobile} />
+        </Canvas>
+      </div>
 
       <div className="hero__content">
         <div className="hero__label">
@@ -103,7 +101,7 @@ export default function Hero() {
         />
 
         <p ref={subtitleRef} className="hero__subtitle">
-          Computer Science undergrad focused on building high-performance
+          Computer Science graduate focused on building high-performance
           web and AI-driven applications. Specializing in scalable systems,
           modern technologies, and user-centric digital experiences.
         </p>

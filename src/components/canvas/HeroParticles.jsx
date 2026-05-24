@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import { PointMaterial, Points } from '@react-three/drei';
 import * as THREE from 'three';
 
-export default function HeroParticles({ count = 4000 }) {
+export default function HeroParticles({ count = 4000, isMobile = false }) {
   const pointsRef = useRef();
   
   // Generate random points in a sphere
@@ -34,11 +34,20 @@ export default function HeroParticles({ count = 4000 }) {
     // Slow ambient rotation offset using native elapsedTime to avoid Drei getElapsedTime warnings
     const time = state.clock.elapsedTime;
     
-    // React to pointer
-    // Mouse coords are clamped between -1 and 1
-    const { pointer } = state;
-    targetRot.x = (pointer.y * Math.PI) / 10;
-    targetRot.y = (pointer.x * Math.PI) / 10;
+    let pointerX, pointerY;
+
+    if (isMobile) {
+      pointerX = 0;
+      pointerY = 0;
+    } else {
+      // React to pointer
+      // Mouse coords are clamped between -1 and 1
+      pointerX = state.pointer.x;
+      pointerY = state.pointer.y;
+    }
+
+    targetRot.x = (pointerY * Math.PI) / 10;
+    targetRot.y = (pointerX * Math.PI) / 10;
 
     // Smooth interpolation towards pointer + ambient time rotation
     pointsRef.current.rotation.x = THREE.MathUtils.lerp(pointsRef.current.rotation.x, targetRot.x + time * 0.02, 0.05);

@@ -19,14 +19,33 @@
                 0 0 40px rgba($color-accent, 0.05);
   }
 
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    opacity: 0.6;
+    transition: opacity $duration-fast $ease-smooth, transform $duration-fast $ease-smooth;
+  }
+
+  &:hover &__icon {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
   &__name {
     font-family: $font-body;
     font-size: $fs-body;
     font-weight: $fw-medium;
     color: $color-text-primary;
     letter-spacing: $ls-wide;
-    position: relative;
-    z-index: 2;
     transition: color $duration-fast $ease-smooth;
   }
 

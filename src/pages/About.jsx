@@ -84,7 +84,7 @@ export default function About() {
           <div className="container">
             <div className="about-page__bio">
               <p>
-                Computer Science undergraduate focused on building high-performance
+                Computer Science graduate focused on building high-performance
                 web and AI-driven applications. I specialize in designing scalable
                 systems, integrating modern technologies, and creating reliable,
                 user-centric digital experiences.

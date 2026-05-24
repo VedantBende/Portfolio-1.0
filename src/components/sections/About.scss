@@ -69,7 +69,16 @@
     padding: $space-3xl 0;
     
     &__canvas-wrapper {
-      display: none; // Absolute 500x500 bleeds off screen on mobile
+      position: relative;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      max-width: 400px;
+      margin: $space-xl auto 0;
+      right: auto;
+      top: auto;
+      transform: none;
+      order: 10;
     }
     
     &__text p {

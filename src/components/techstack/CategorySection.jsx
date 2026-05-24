@@ -39,7 +39,7 @@ export default function CategorySection({ category, items }) {
       </div>
       <div className="category-section__grid">
         {items.map((tech) => (
-          <TechCard key={tech} name={tech} />
+          <TechCard key={tech.name} name={tech.name} Icon={tech.icon} />
         ))}
       </div>
     </div>
